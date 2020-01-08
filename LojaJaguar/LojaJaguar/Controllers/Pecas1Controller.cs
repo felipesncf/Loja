@@ -82,7 +82,6 @@ namespace LojaJaguar.Controllers
             return View(peca);
         }
 
-        // GET: Pecas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,27 +94,21 @@ namespace LojaJaguar.Controllers
                 return RedirectToAction(nameof(Error), new { mensagem = "Id não encontrado" });
             }
 
-            var carros = await _carroService.FindAllAsync();
-            var galpoes = await _galpaoService.FindAllAsync();
-            var viewModel = new PecaViewModel { Carros = carros, Galpoes = galpoes };
+            List<Galpao> galpoes = await _galpaoService.FindAllAsync();
+            List<Carro> carros = await _carroService.FindAllAsync();
+            PecaViewModel viewModel = new PecaViewModel { Peca = obj, Galpoes = galpoes, Carros = carros };
 
             return View(viewModel);
         }
-
-        // POST: Pecas/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Quantidade,CarroId,GalpaoId,Preco")] Peca peca)
+        public async Task<IActionResult> Edit(int id, Peca peca)
         {
             if (!ModelState.IsValid)
             {
-                var carros = await _carroService.FindAllAsync();
-                var galpoes = await _galpaoService.FindAllAsync();
-                var viewModel = new PecaViewModel { Carros = carros, Galpoes = galpoes };
-
-                return View(viewModel);
+                List<Galpao> galpoes = await _galpaoService.FindAllAsync();
+                List<Carro> carros = await _carroService.FindAllAsync();
+                PecaViewModel viewModel = new PecaViewModel { Peca = peca, Galpoes = galpoes, Carros = carros };
             }
             if (id != peca.Id)
             {
@@ -135,7 +128,55 @@ namespace LojaJaguar.Controllers
                 return RedirectToAction(nameof(Error), new { mensagem = e.Message });
             }
         }
-        
+
+        //public async Task<IActionResult> Venda(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não foi fornecido" }); ;
+        //    }
+        //    var obj = await _pecaService.FindByIdAsync(id.Value);
+        //    if (obj == null)
+        //    {
+        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não encontrado" });
+        //    }
+
+        //    List<Galpao> galpoes = await _galpaoService.FindAllAsync();
+        //    List<Carro> carros = await _carroService.FindAllAsync();
+        //    PecaViewModel viewModel = new PecaViewModel { Peca = obj, Galpoes = galpoes, Carros = carros };
+
+        //    return View(viewModel);
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Venda(int id, Peca peca)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        peca.Quantidade -= 1;
+        //        List<Galpao> galpoes = await _galpaoService.FindAllAsync();
+        //        List<Carro> carros = await _carroService.FindAllAsync();
+        //        PecaViewModel viewModel = new PecaViewModel { Peca = peca, Galpoes = galpoes, Carros = carros };
+        //    }
+        //    if (id != peca.Id)
+        //    {
+        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não corresponde" });
+        //    }
+        //    try
+        //    {
+        //        await _pecaService.UpdateAsync(peca);
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch (NotFoundException e)
+        //    {
+        //        return RedirectToAction(nameof(Error), new { mensagem = e.Message });
+        //    }
+        //    catch (DbConcurrencyException e)
+        //    {
+        //        return RedirectToAction(nameof(Error), new { mensagem = e.Message });
+        //    }
+        //}
+
 
 
         // GET: Pecas/Delete/5
@@ -181,6 +222,11 @@ namespace LojaJaguar.Controllers
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
             };
             return View(viewModel);
+        }
+        public async Task<IActionResult> Pesquisa(string name) 
+        {
+            var result = await _pecaService.FindByNameAsync(name);
+            return View(result);
         }
     }
 }

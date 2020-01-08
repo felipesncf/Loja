@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pioca_000\\source\\repos\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj": {}
+    "C:\\Users\\pioca_000\\Videos\\Loja\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pioca_000\\source\\repos\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj": {
+    "C:\\Users\\pioca_000\\Videos\\Loja\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pioca_000\\source\\repos\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj",
+        "projectUniqueName": "C:\\Users\\pioca_000\\Videos\\Loja\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj",
         "projectName": "LojaJaguar",
-        "projectPath": "C:\\Users\\pioca_000\\source\\repos\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj",
+        "projectPath": "C:\\Users\\pioca_000\\Videos\\Loja\\LojaJaguar\\LojaJaguar\\LojaJaguar.csproj",
         "packagesPath": "C:\\Users\\pioca_000\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pioca_000\\source\\repos\\LojaJaguar\\LojaJaguar\\obj\\",
+        "outputPath": "C:\\Users\\pioca_000\\Videos\\Loja\\LojaJaguar\\LojaJaguar\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -6,16 +6,25 @@
 
   <ItemGroup>
     <Compile Remove="Views\Pecas\**" />
+    <Compile Remove="Views\Pesquisas\**" />
     <Content Remove="Views\Pecas\**" />
+    <Content Remove="Views\Pesquisas\**" />
     <EmbeddedResource Remove="Views\Pecas\**" />
+    <EmbeddedResource Remove="Views\Pesquisas\**" />
     <None Remove="Views\Pecas\**" />
+    <None Remove="Views\Pesquisas\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Controllers\PecasController.cs" />
+    <Compile Remove="Controllers\PesquisasController.cs" />
+    <Compile Remove="Models\Pesquisa.cs" />
+    <Compile Remove="Service\PesquisaService.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Pecas1\Pesquisar.cshtml" />
+    <Content Remove="Views\Pecas1\Venda.cshtml" />
     <Content Remove="Views\Pecas1\Vender.cshtml" />
   </ItemGroup>
 

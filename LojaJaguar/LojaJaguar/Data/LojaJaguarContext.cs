@@ -14,6 +14,11 @@ namespace LojaJaguar.Models
         {
         }
 
+        public LojaJaguarContext()
+        {
+
+        }
+
         public DbSet<LojaJaguar.Models.Carro> Carro { get; set; }
 
         public DbSet<LojaJaguar.Models.Galpao> Galpao { get; set; }

@@ -31,15 +31,9 @@ namespace LojaJaguar.Models
             Preco = preco;
         }
 
-        public void Vender(int id, Peca peca)
+        public void Vender(int quant, Peca peca)
         {
-            if(id==null || peca.Id != id)
-            {
-            }
-            else
-            {
-                Quantidade--;
-            }
+            peca.Quantidade -= quant;
         }
     }
 }

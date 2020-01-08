@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form class="form-horizontal" asp-action="Pesquisar">
+            <fieldset>
+                <legend>Buscar</legend>
+                <div class="form-group">
+                    <label for="maxDate" class="col-lg-2 control-label">Peça</label>
+                    <div class="col-lg-10">
+                        <input type="search" name="pesquisar" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
