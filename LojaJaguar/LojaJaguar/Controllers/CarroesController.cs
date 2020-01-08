@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaJaguar.Models;
+using LojaJaguar.Service;
 
 namespace LojaJaguar.Controllers
 {
     public class CarroesController : Controller
     {
         private readonly LojaJaguarContext _context;
+        private readonly CarroService _carroService;
 
-        public CarroesController(LojaJaguarContext context)
+        public CarroesController(LojaJaguarContext context, CarroService carroService)
         {
             _context = context;
+            _carroService = carroService;
         }
 
         // GET: Carroes
@@ -147,6 +150,11 @@ namespace LojaJaguar.Controllers
         private bool CarroExists(int id)
         {
             return _context.Carro.Any(e => e.Id == id);
+        }
+        public async Task<IActionResult> Pesquisa(string name)
+        {
+            var result = await _carroService.FindByNameAsync(name);
+            return View(result);
         }
     }
 }

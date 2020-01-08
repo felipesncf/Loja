@@ -41,7 +41,7 @@ namespace LojaJaguar.Service
             }
             result = result.Where(x => x.Nome == name);
 
-            return await _context.Peca.Include(x => x.Carro).Include(x => x.Galpao).Where(obj => obj.Nome == name).ToListAsync();
+            return await _context.Peca.Include(x => x.Carro).Include(x => x.Galpao).Where(obj => obj.Nome == name).OrderByDescending(x=>x.Preco).ToListAsync();
         }
 
         public async Task RemoveAsync(int id)

@@ -19,5 +19,16 @@ namespace LojaJaguar.Service
         {
             return await _context.Carro.OrderBy(x => x.Modelo).ToListAsync();
         }
+        public async Task<List<Carro>> FindByNameAsync(string name)
+        {
+            var result = from obj in _context.Carro select obj;
+            if (name == null)
+            {
+                return await _context.Carro.ToListAsync();
+            }
+            result = result.Where(x => x.Modelo == name);
+
+            return await result.OrderByDescending(x=> x.DataDeChegada).ToListAsync();
+        }
     }
 }

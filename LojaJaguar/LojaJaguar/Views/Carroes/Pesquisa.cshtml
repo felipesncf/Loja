@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LojaJaguar.Models.Carro>
+@{
+    ViewData["Title"] = "Buscar";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar: @Html.TextBox("name")
+        <input type="submit" value="Filtrar" />
+    </p>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="success">
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fabricante)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Modelo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ano)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DataDeChegada)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fabricante)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Modelo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ano)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataDeChegada)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Detalhe</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a> |
+                            <a asp-action="Venda" asp-route-id="@item.Id">Vender</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
