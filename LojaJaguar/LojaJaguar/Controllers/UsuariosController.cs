@@ -71,7 +71,7 @@ namespace LojaJaguar.Controllers
             var propriedadesDeAutenticacao = new AuthenticationProperties
             {
                 AllowRefresh = true,
-                ExpiresUtc = DateTime.Now.ToLocalTime().AddMinutes(2),
+                ExpiresUtc = DateTime.Now.ToLocalTime().AddHours(17),
                 IsPersistent = true
             };
 

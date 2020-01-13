@@ -325,3 +325,4 @@ C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Loj
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\LojaJaguar.csproj.CopyComplete
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\LojaJaguar.dll
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\LojaJaguar.pdb
+C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\LojaJaguar.csprojAssemblyReference.cache
