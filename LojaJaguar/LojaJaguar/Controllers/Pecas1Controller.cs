@@ -10,6 +10,7 @@ using LojaJaguar.Service;
 using LojaJaguar.Models.ViewModels;
 using LojaJaguar.Service.Exceptions;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaJaguar.Controllers
 {
@@ -28,14 +29,14 @@ namespace LojaJaguar.Controllers
             _galpaoService = galpaoService;
         }
 
-        // GET: Pecas
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var lojaJaguarContext = _context.Peca.Include(p => p.Carro).Include(p => p.Galpao);
             return View(await lojaJaguarContext.ToListAsync());
         }
 
-        // GET: Pecas/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +57,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Pecas/Create
+        [Authorize]
         public async Task<IActionResult> Create()
         {
             var carros = await _carroService.FindAllAsync();
@@ -69,6 +71,7 @@ namespace LojaJaguar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Nome,Quantidade,CarroId,GalpaoId,Preco")] Peca peca)
         {
             if (ModelState.IsValid)
@@ -82,6 +85,7 @@ namespace LojaJaguar.Controllers
             return View(peca);
         }
 
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -102,6 +106,7 @@ namespace LojaJaguar.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, Peca peca)
         {
             if (!ModelState.IsValid)
@@ -180,6 +185,7 @@ namespace LojaJaguar.Controllers
 
 
         // GET: Pecas/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -202,6 +208,7 @@ namespace LojaJaguar.Controllers
         // POST: Pecas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var peca = await _context.Peca.FindAsync(id);
@@ -214,6 +221,7 @@ namespace LojaJaguar.Controllers
         {
             return _context.Peca.Any(e => e.Id == id);
         }
+        [Authorize]
         public IActionResult Error(string mensagem)
         {
             var viewModel = new ErrorViewModel
@@ -223,6 +231,7 @@ namespace LojaJaguar.Controllers
             };
             return View(viewModel);
         }
+        [Authorize]
         public async Task<IActionResult> Pesquisa(string name) 
         {
             var result = await _pecaService.FindByNameAsync(name);

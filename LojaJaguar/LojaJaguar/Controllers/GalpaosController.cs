@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaJaguar.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaJaguar.Controllers
 {
@@ -19,12 +20,14 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Galpaos
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Galpao.ToListAsync());
         }
 
         // GET: Galpaos/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,6 +46,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Galpaos/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -53,6 +57,7 @@ namespace LojaJaguar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Nome")] Galpao galpao)
         {
             if (ModelState.IsValid)
@@ -65,6 +70,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Galpaos/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +91,7 @@ namespace LojaJaguar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Galpao galpao)
         {
             if (id != galpao.Id)
@@ -116,6 +123,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Galpaos/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +144,7 @@ namespace LojaJaguar.Controllers
         // POST: Galpaos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var galpao = await _context.Galpao.FindAsync(id);

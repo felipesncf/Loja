@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LojaJaguar.Models;
 using LojaJaguar.Service;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LojaJaguar.Controllers
 {
@@ -22,12 +23,14 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Carroes
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Carro.ToListAsync());
         }
 
         // GET: Carroes/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +49,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Carroes/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -56,6 +60,7 @@ namespace LojaJaguar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("Id,Fabricante,Modelo,Cor,Ano,DataDeChegada")] Carro carro)
         {
             if (ModelState.IsValid)
@@ -68,6 +73,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Carroes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -88,6 +94,7 @@ namespace LojaJaguar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Fabricante,Modelo,Cor,Ano,DataDeChegada")] Carro carro)
         {
             if (id != carro.Id)
@@ -119,6 +126,7 @@ namespace LojaJaguar.Controllers
         }
 
         // GET: Carroes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -139,6 +147,7 @@ namespace LojaJaguar.Controllers
         // POST: Carroes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var carro = await _context.Carro.FindAsync(id);
@@ -151,6 +160,8 @@ namespace LojaJaguar.Controllers
         {
             return _context.Carro.Any(e => e.Id == id);
         }
+
+        [Authorize]
         public async Task<IActionResult> Pesquisa(string name)
         {
             var result = await _carroService.FindByNameAsync(name);
