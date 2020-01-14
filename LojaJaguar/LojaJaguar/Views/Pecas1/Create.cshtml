@@ -1,12 +1,11 @@
 ﻿@model LojaJaguar.Models.ViewModels.PecaViewModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar nova peça";
 }
 
-<h1>Create</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h4>Peca</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Peca.Preco" class="control-label"></label>
-                <input asp-for="Peca.Preco" class="form-control" />
+                <input type="number" asp-for="Peca.Preco" class="form-control" />
                 <span asp-validation-for="Peca.Preco" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -38,14 +37,14 @@
 "Nome"))" class="form-control"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar para a lista de peças</a>
 </div>
 
 @section Scripts {

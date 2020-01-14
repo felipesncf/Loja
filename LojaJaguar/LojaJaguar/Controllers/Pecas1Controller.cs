@@ -134,56 +134,6 @@ namespace LojaJaguar.Controllers
             }
         }
 
-        //public async Task<IActionResult> Venda(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não foi fornecido" }); ;
-        //    }
-        //    var obj = await _pecaService.FindByIdAsync(id.Value);
-        //    if (obj == null)
-        //    {
-        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não encontrado" });
-        //    }
-
-        //    List<Galpao> galpoes = await _galpaoService.FindAllAsync();
-        //    List<Carro> carros = await _carroService.FindAllAsync();
-        //    PecaViewModel viewModel = new PecaViewModel { Peca = obj, Galpoes = galpoes, Carros = carros };
-
-        //    return View(viewModel);
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Venda(int id, Peca peca)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        peca.Quantidade -= 1;
-        //        List<Galpao> galpoes = await _galpaoService.FindAllAsync();
-        //        List<Carro> carros = await _carroService.FindAllAsync();
-        //        PecaViewModel viewModel = new PecaViewModel { Peca = peca, Galpoes = galpoes, Carros = carros };
-        //    }
-        //    if (id != peca.Id)
-        //    {
-        //        return RedirectToAction(nameof(Error), new { mensagem = "Id não corresponde" });
-        //    }
-        //    try
-        //    {
-        //        await _pecaService.UpdateAsync(peca);
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (NotFoundException e)
-        //    {
-        //        return RedirectToAction(nameof(Error), new { mensagem = e.Message });
-        //    }
-        //    catch (DbConcurrencyException e)
-        //    {
-        //        return RedirectToAction(nameof(Error), new { mensagem = e.Message });
-        //    }
-        //}
-
-
-
         // GET: Pecas/Delete/5
         [Authorize]
         public async Task<IActionResult> Delete(int? id)
@@ -232,7 +182,7 @@ namespace LojaJaguar.Controllers
             return View(viewModel);
         }
         [Authorize]
-        public async Task<IActionResult> Pesquisa(string name) 
+        public async Task<IActionResult> Pesquisa(string name)
         {
             var result = await _pecaService.FindByNameAsync(name);
             return View(result);

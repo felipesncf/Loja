@@ -30,11 +30,14 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Pecas1" asp-action="Index">Peças</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
-                            </li>
                         }
                 </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div style="text-align:right">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Usuarios" asp-action="Logout">Sair</a>
+                    </div>
+                }
             </div>
         </nav>
     </header>

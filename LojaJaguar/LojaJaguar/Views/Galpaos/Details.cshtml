@@ -1,13 +1,11 @@
 ﻿@model LojaJaguar.Models.Galpao
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do galpão";
 }
 
-<h1>Details</h1>
-
+<h1>@ViewData["Title"]</h1>
 <div>
-    <h4>Galpao</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -19,6 +17,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista de galpões</a>
 </div>

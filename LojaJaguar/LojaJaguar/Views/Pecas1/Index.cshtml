@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<LojaJaguar.Models.Peca>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Relação de peças";
 }
-<h1>Relação de Peças</h1>
+<h1>@ViewData["Title"]</h1>
 
 
 <p>
-    <a asp-action="Create">Create </a>
+    <a asp-action="Create">Adicionar nova peça </a>
 </p>
 
 <form class="form-horizontal" asp-action="Pesquisa">
@@ -19,28 +19,6 @@
         </p>
     }
 </form>
-
-
-@*<div class="row">
-        <div class="col-md-6">
-            <form class="form-horizontal" asp-action="Pesquisa">
-                <fieldset>
-                    <legend>Buscar</legend>
-                    <div class="form-group">
-                        <label for="busca" class="col-lg-2 control-label">Peça</label>
-                        <div class="col-lg-10">
-                            <input type="search" name="busca" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="submit" class="btn btn-primary">Filtrar</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>*@
 
 <table class="table">
     <thead>
@@ -90,9 +68,9 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalhe</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a> |
-                    <a asp-action="Venda" asp-route-id="@item.Id">Vender</a>
+                    <a asp-action="Movimentacao" asp-route-id="@item.Id">Vender</a>
                 </td>
             </tr>
         }

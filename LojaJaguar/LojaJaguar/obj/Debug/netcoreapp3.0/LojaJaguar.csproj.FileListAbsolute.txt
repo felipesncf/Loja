@@ -310,6 +310,7 @@ C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Raz
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Pecas1\Details.cshtml.g.cs
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Pecas1\Edit.cshtml.g.cs
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Pecas1\Index.cshtml.g.cs
+C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Pecas1\Movimentacao.cshtml.g.cs
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Pecas1\Pesquisa.cshtml.g.cs
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\pioca_000\Videos\Loja\LojaJaguar\LojaJaguar\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs

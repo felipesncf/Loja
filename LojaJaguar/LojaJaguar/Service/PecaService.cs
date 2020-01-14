@@ -34,14 +34,14 @@ namespace LojaJaguar.Service
         public async Task<List<Peca>> FindByNameAsync(string name)
         {
             var result = from obj in _context.Peca select obj;
-            if (name == null )
+            if (name == null)
             {
                 var lojaJaguarContext = _context.Peca.Include(p => p.Carro).Include(p => p.Galpao).ToListAsync();
                 return await lojaJaguarContext;
             }
             result = result.Where(x => x.Nome == name);
 
-            return await _context.Peca.Include(x => x.Carro).Include(x => x.Galpao).Where(obj => obj.Nome == name).OrderByDescending(x=>x.Preco).ToListAsync();
+            return await _context.Peca.Include(x => x.Carro).Include(x => x.Galpao).Where(obj => obj.Nome == name).OrderByDescending(x => x.Preco).ToListAsync();
         }
 
         public async Task RemoveAsync(int id)

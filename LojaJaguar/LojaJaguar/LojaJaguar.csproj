@@ -25,6 +25,7 @@
   <ItemGroup>
     <Content Remove="Views\Pecas1\Pesquisar.cshtml" />
     <Content Remove="Views\Pecas1\Venda.cshtml" />
+    <Content Remove="Views\Pecas1\Vendas.cshtml" />
     <Content Remove="Views\Pecas1\Vender.cshtml" />
   </ItemGroup>
 

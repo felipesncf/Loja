@@ -1,0 +1,30 @@
+﻿@model LojaJaguar.Models.ViewModels.PecaViewModel
+@{
+    ViewData["Title"] = "Venda de peça";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Vendas">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Peca.Id" />
+            <div class="form-group">
+                <input class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Vender" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista de peças</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
